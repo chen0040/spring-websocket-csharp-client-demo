@@ -7,10 +7,10 @@
 # BlueJ files
 *.ctxt
 
-*.iml
-.idea/
-target/
-out/
+spring-boot-application/*.iml
+spring-boot-application/.idea/
+spring-boot-application/target/
+spring-boot-application/out/
 
 bin/*.jar
 

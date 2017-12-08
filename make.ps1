@@ -11,7 +11,7 @@ Invoke-Expression -Command:"mvn -f pom.xml clean package -P$profile -U"
 
 $projs=@("spring-boot-application")
 foreach ($proj in $projs){
-    $source=$PSScriptRoot + "/target/" + $proj + ".jar"
+    $source=$PSScriptRoot + "/" + $proj + "/target/" + $proj + ".jar"
     $dest=$PSScriptRoot + "/bin/" + $proj + ".jar"
     copy $source $dest
 }

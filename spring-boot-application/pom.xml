@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.github.chen0040</groupId>
-    <artifactId>spring-websocket-csharp-client-demo</artifactId>
+    <artifactId>spring-boot-application</artifactId>
     <version>1.0.1</version>
 
 
