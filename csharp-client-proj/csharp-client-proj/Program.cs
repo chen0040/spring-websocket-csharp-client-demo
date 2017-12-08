@@ -5,7 +5,7 @@ using WebSocketSharp;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_client_proj
+namespace WebSocketClient
 {
     class Program
     {
@@ -13,8 +13,24 @@ namespace csharp_client_proj
         {
             using (var ws = new WebSocket("ws://localhost:8080/my-ws/websocket"))
             {
-                ws.OnOpen += (sender, e) => 
-                Console.WriteLine("Spring says: open");
+                ws.OnOpen += (sender, e) =>
+                {
+                    Console.WriteLine("Spring says: open");
+                    StompMessageSerializer serializer = new StompMessageSerializer();
+
+                    var connect = new StompMessage("CONNECT");
+                    connect["accept-version"] = "1.1";
+                    connect["heart-beat"] = "10000,10000";
+                    ws.Send(serializer.Serialize(connect));
+
+                    
+                    var sub = new StompMessage("SUBSCRIBE");
+                    sub["id"] = "sub-999";
+                    sub["destination"] = "/topics/event";
+                    ws.Send(serializer.Serialize(sub));
+                    
+                };
+                
                 ws.OnError += (sender, e) =>
                 Console.WriteLine("Error: " + e.Message);
                 ws.OnMessage += (sender, e) =>
@@ -22,7 +38,7 @@ namespace csharp_client_proj
 
                 ws.Connect();
                
-                //ws.Send("SUBSCRIBE id:sub-0 destination:/topic/mytopic\0");
+                //ws.Send("SUBSCRIBE id:sub-0 destination:/topics/mytopic\0");
                 Console.ReadKey(true);
             }
         }

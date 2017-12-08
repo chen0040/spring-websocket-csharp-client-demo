@@ -7,7 +7,7 @@
     <ProjectGuid>{F044ECE4-E28F-4B08-A3A1-C2E57C477B81}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>csharp_client_proj</RootNamespace>
+    <RootNamespace>WebSocketClient</RootNamespace>
     <AssemblyName>csharp-client-proj</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StompCommand.cs" />
+    <Compile Include="StompMessage.cs" />
+    <Compile Include="StompMessageSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

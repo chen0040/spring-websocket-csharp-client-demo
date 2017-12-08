@@ -23,4 +23,9 @@ public class AuditEvent {
    public AuditEvent(){
 
    }
+
+   public AuditEvent(String category, String description) {
+      this.category = category;
+      this.description = description;
+   }
 }
