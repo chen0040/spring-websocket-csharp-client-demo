@@ -13,6 +13,8 @@ namespace WebSocketClient
         {
             using (var ws = new WebSocket("ws://localhost:8080/my-ws/websocket"))
             {
+                int clientId = 999;
+
                 ws.OnOpen += (sender, e) =>
                 {
                     Console.WriteLine("Spring says: open");
@@ -24,8 +26,9 @@ namespace WebSocketClient
                     ws.Send(serializer.Serialize(connect));
 
                     
+                    
                     var sub = new StompMessage("SUBSCRIBE");
-                    sub["id"] = "sub-999";
+                    sub["id"] = "sub-" + clientId;
                     sub["destination"] = "/topics/event";
                     ws.Send(serializer.Serialize(sub));
                     
@@ -38,7 +41,6 @@ namespace WebSocketClient
 
                 ws.Connect();
                
-                //ws.Send("SUBSCRIBE id:sub-0 destination:/topics/mytopic\0");
                 Console.ReadKey(true);
             }
         }
