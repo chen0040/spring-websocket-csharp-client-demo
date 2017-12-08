@@ -13,4 +13,5 @@ Run the following command to start the spring-boot-application at http://localho
 java -jar bin/spring-boot-application.jar
 ```
 
+Now cd to csharp-client-proj and open the csharp-client-proj.sln in your Visual Studio IDE. and 
 

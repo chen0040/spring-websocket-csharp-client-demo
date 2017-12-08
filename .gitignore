@@ -16,6 +16,7 @@ bin/*.jar
 
 csharp-client-proj/csharp-client-proj/bin
 csharp-client-proj/csharp-client-proj/obj
+csharp-client-proj/csharp-client-proj.csproj.user
 csharp-client-proj/packages
 
 # Mobile Tools for Java (J2ME)
